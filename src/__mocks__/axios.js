@@ -81,5 +81,25 @@ export default {
         data: fixtures.interviewers
       });
     }
+  }),
+  put: jest.fn((url) => {
+    if (url === "/api/days") {
+      return Promise.resolve({ status: 204, statusText: "No Content" });
+    }
+
+    if (url === "/api/appointments/1" || url === "/api/appointments/2") {
+      /* Resolve appointments data */
+      return Promise.resolve({ status: 204, statusText: "No Content" });
+    }
+
+    if (url === "/api/interviewers/1" || url === "/api/interviewers/2") {
+      /* Resolve interviewers data */
+      return Promise.resolve({ status: 204, statusText: "No Content" });
+    }
+  }),
+  delete: jest.fn((url) => {
+    if (url === "/api/appointments/2") {
+      return Promise.resolve({ status: 204, statusText: "No Content" });
+    }
   })
 };
