@@ -21,3 +21,8 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Screenshots
+!["Index"](https://github.com/YuliiaMatich/scheduler/blob/master/docs/schedule-index.png?raw=true)
+!["Appointment form"](https://github.com/YuliiaMatich/scheduler/blob/master/docs/appointment-form.png?raw=true)
+!["Confirmation form"](https://github.com/YuliiaMatich/scheduler/blob/master/docs/confirmation-form.png?raw=true)
