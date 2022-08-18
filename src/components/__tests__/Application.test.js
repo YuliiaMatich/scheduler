@@ -7,7 +7,7 @@ import { render,
   getByText,
   getAllByTestId,
   queryByText,
-  getByTestId,
+  queryByAltText,
   getByPlaceholderText,
   getByAltText } from "@testing-library/react";
 
@@ -28,7 +28,7 @@ it("changes the schedule when a new day is selected", async () => {
 });
 
 it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
-  const { container } = render(<Application />);
+  const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -44,7 +44,7 @@ it("loads data, books an interview and reduces the spots remaining for Monday by
   fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
   fireEvent.click(getByText(appointment, "Save"));
 
-  expect(getByText(appointment, "Saving")).toBeInTheDocument();
+  expect(getByText(appointment, "Saving...")).toBeInTheDocument();
 
   await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
@@ -71,7 +71,7 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
 
   // 4. Check that the confirmation message is shown.
   expect(
-    getByText(appointment, "Are you sure you would like to delete?")
+    getByText(appointment, "Do you want to delete the appointment?")
   ).toBeInTheDocument();
 
   // 5. Click the "Confirm" button on the confirmation.
